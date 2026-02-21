@@ -342,7 +342,7 @@ export default function HomePage() {
               <div className="space-y-3">
                   {/* Combined Phones & Emails - Single Compact Box */}
                   <div className="p-6 rounded-xl border border-teal-200 bg-gradient-to-r from-teal-50 to-blue-50">
-                    <div className="grid grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">  {/* ✅ CHANGED */}
                       
                       {/* Left Column - Phones */}
                       <div className="space-y-3">
@@ -380,7 +380,7 @@ export default function HomePage() {
                             </svg>
                           </div>
                           <div>
-                            <a href="mailto:sanjay.gupta666@yahoo.com" className="font-semibold text-slate-900 hover:text-teal-700 block">sanjay.gupta666@yahoo.com</a>
+                            <a href="mailto:sanjay.gupta666@yahoo.com" className="font-semibold text-slate-900 hover:text-teal-700 block break-all">sanjay.gupta666@yahoo.com</a>
                             <p className="text-xs text-slate-500">Primary</p>
                           </div>
                         </div>
@@ -392,7 +392,7 @@ export default function HomePage() {
                             </svg>
                           </div>
                           <div>
-                            <a href="mailto:vatsalg340@gmail.com" className="font-semibold text-slate-900 hover:text-teal-700 block">vatsalg340@gmail.com</a>
+                            <a href="mailto:vatsalg340@gmail.com" className="font-semibold text-slate-900 hover:text-teal-700 block break-all">vatsalg340@gmail.com</a>
                             <p className="text-xs text-slate-500">Secondary</p>
                           </div>
                         </div>
