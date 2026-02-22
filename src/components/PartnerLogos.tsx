@@ -3,6 +3,7 @@ import Image from "next/image";
 const partners = [
   { name: "ICICI Lombard", logo: "/logos/icici.png" },
   { name: "HDFC ERGO", logo: "/logos/hdfc.png" },
+  { name: "NIPPON INDIA", logo: "/logos/nippon.png" },
   { name: "IFFCO Tokio", logo: "/logos/iffco.png" },
   { name: "Go Digit", logo: "/logos/digit.png" },
   { name: "New India Assurance", logo: "/logos/newindia.png" },

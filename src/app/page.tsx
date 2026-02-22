@@ -380,7 +380,7 @@ export default function HomePage() {
                             </svg>
                           </div>
                           <div>
-                            <a href="mailto:sanjay.gupta666@yahoo.com" className="font-semibold text-slate-900 hover:text-teal-700 block break-all">sanjay.gupta666@yahoo.com</a>
+                            <a href="mailto:sanjay.gupta666@yahoo.com" className="font-semibold text-slate-900 hover:text-teal-700 block break-all">team.santoshmoneymultiplier@gmail.com</a>
                             <p className="text-xs text-slate-500">Primary</p>
                           </div>
                         </div>
@@ -392,7 +392,7 @@ export default function HomePage() {
                             </svg>
                           </div>
                           <div>
-                            <a href="mailto:vatsalg340@gmail.com" className="font-semibold text-slate-900 hover:text-teal-700 block break-all">vatsalg340@gmail.com</a>
+                            <a href="mailto:vatsalg340@gmail.com" className="font-semibold text-slate-900 hover:text-teal-700 block break-all">sanjay.gupta666@yahoo.com</a>
                             <p className="text-xs text-slate-500">Secondary</p>
                           </div>
                         </div>
