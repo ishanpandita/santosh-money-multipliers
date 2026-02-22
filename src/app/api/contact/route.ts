@@ -1,8 +1,29 @@
 import { NextResponse } from "next/server";
+import { supabase } from "@/lib/supabase";
 
 export async function POST(req: Request) {
   try {
     const { name, email, phone, service, message } = await req.json();
+
+    const { error } = await supabase.from("contact_messages").insert([
+      {
+        name,
+        email,
+        phone,
+        service,
+        message,
+      },
+    ]);
+
+    // ✅ ADDED: If database fails, stop here
+    if (error) {
+      console.error("Supabase Error:", error);
+      return NextResponse.json(
+        { error: "Database error" },
+        { status: 500 }
+      );
+    }
+
 
     const response = await fetch("https://api.brevo.com/v3/smtp/email", {
       method: "POST",
