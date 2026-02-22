@@ -1,8 +1,9 @@
 "use client";
 
- import { useState } from "react";
+import { useState } from "react";
 import ServiceCard from "@/components/ServiceCard";
 import PartnerLogos from "@/components/PartnerLogos";
+import { FaInstagram } from "react-icons/fa";
 
 
 export default function HomePage() {
@@ -378,6 +379,7 @@ export default function HomePage() {
                             <svg className="w-5 h-5 text-teal-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-18 8h18a2 2 0 002-2V8a2 2 0 00-2-2H3a2 2 0 00-2 2v6a2 2 0 002 2z" />
                             </svg>
+                            
                           </div>
                           <div>
                             <a href="mailto:sanjay.gupta666@yahoo.com" className="font-semibold text-slate-900 hover:text-teal-700 block break-all">team.santoshmoneymultiplier@gmail.com</a>
@@ -419,6 +421,22 @@ export default function HomePage() {
                       </p>
                     </div>
                   </div>
+                </div>
+
+                <div className="mt-6 text-center">
+                  <p className="text-sm text-slate-600">
+                    Follow us on Instagram for updates
+                  </p>
+
+                  <a
+                    href="https://instagram.com/santosh__money_multiplier"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 mt-2 text-pink-600 hover:text-pink-700 font-medium transition-colors"
+                  >
+                    <FaInstagram className="w-5 h-5" />
+                    
+                  </a>
                 </div>
 
 
