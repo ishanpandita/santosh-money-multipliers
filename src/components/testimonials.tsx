@@ -77,7 +77,7 @@ export default function Testimonials() {
           What Our Customers Say
         </h2>
         <p className="text-slate-600 mt-3 mb-14">
-          Trusted by hundreds of satisfied clients
+          Trusted by thousands of satisfied clients from last 27 years
         </p>
 
         <div
