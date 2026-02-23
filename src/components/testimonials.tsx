@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const reviews = [
   {
-    name: "Gautam Sharma",
+    name: "Rahul Sharma",
     text: "Excellent service and very transparent advice. Highly recommended for insurance planning.",
   },
   {
     name: "Priya Verma",
-    text: "Visited the office. Very professional and supportive team.",
+    text: "Very professional and supportive team. They explained everything clearly.",
   },
   {
     name: "Amit Singh",
@@ -23,20 +23,44 @@ const reviews = [
     name: "Sandeep Mehta",
     text: "They helped me choose the perfect health insurance plan.",
   },
-  {
-    name: "Ishan Pandita",
-    text: "Sanjay sir and team helped me personally for long time. Excellent services "
-  },
-  {
-    name: "Umar Sadiq",
-    text: "Amazing professionals helped me to create a significant portfolio"
-  }
 ];
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
 
-  const visibleReviews = reviews.slice(currentIndex, currentIndex + 3);
+  const itemsPerView =
+    typeof window !== "undefined" && window.innerWidth < 768 ? 1 : 3;
+
+  const maxIndex = reviews.length - itemsPerView;
+
+  const handleNext = () => {
+    if (currentIndex < maxIndex) {
+      setCurrentIndex(currentIndex + 1);
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
+  };
+
+  // Swipe support
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!touchStartX.current) return;
+
+    const diff = touchStartX.current - e.changedTouches[0].clientX;
+
+    if (diff > 50) handleNext();
+    if (diff < -50) handlePrev();
+
+    touchStartX.current = null;
+  };
 
   return (
     <section className="py-20 bg-slate-50">
@@ -45,42 +69,43 @@ export default function Testimonials() {
           What Our Customers Say
         </h2>
         <p className="text-slate-600 mt-3 mb-14">
-          Trusted by thousands of satisfied clients from last 27 years
+          Trusted by hundreds of satisfied clients
         </p>
 
-        {/* Desktop View (3 Cards) */}
-        <div className="hidden md:grid grid-cols-3 gap-8">
-          {visibleReviews.map((review, index) => (
-            <div
-              key={index}
-              className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition"
-            >
-              <p className="text-slate-600 mb-4">“{review.text}”</p>
-              <h4 className="font-semibold text-slate-900">
-                {review.name}
-              </h4>
-            </div>
-          ))}
+        <div
+          className="overflow-hidden"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div
+            className="flex transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${
+                currentIndex * (100 / itemsPerView)
+              }%)`,
+            }}
+          >
+            {reviews.map((review, index) => (
+              <div
+                key={index}
+                className="w-full md:w-1/3 px-4 flex-shrink-0"
+              >
+                <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-lg transition">
+                  <p className="text-slate-600 mb-4">
+                    “{review.text}”
+                  </p>
+                  <h4 className="font-semibold text-slate-900">
+                    {review.name}
+                  </h4>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* Mobile View (1 Card Swipe) */}
-        <div className="md:hidden overflow-x-auto scroll-smooth flex snap-x snap-mandatory gap-6 pb-4">
-          {reviews.map((review, index) => (
-            <div
-              key={index}
-              className="min-w-full snap-center bg-white p-6 rounded-2xl shadow-sm border border-slate-100"
-            >
-              <p className="text-slate-600 mb-4">“{review.text}”</p>
-              <h4 className="font-semibold text-slate-900">
-                {review.name}
-              </h4>
-            </div>
-          ))}
-        </div>
-
-        {/* Dot Navigation (Desktop Only) */}
-        <div className="hidden md:flex justify-center mt-8 space-x-3">
-          {Array.from({ length: reviews.length - 2 }).map((_, index) => (
+        {/* Dots for ALL devices */}
+        <div className="flex justify-center mt-8 space-x-3">
+          {Array.from({ length: maxIndex + 1 }).map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
