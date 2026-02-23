@@ -4,12 +4,16 @@ import { useState, useRef } from "react";
 
 const reviews = [
   {
-    name: "Rahul Sharma",
+    name: "Gautam Sharma",
     text: "Excellent service and very transparent advice. Highly recommended for insurance planning.",
   },
   {
     name: "Priya Verma",
     text: "Very professional and supportive team. They explained everything clearly.",
+  },
+  {
+    name: "Ishan Pandita",
+    text: "Excellent. Thankyou Sanjay sir and team for providing services and building my portfolio for long time"
   },
   {
     name: "Amit Singh",
@@ -18,6 +22,10 @@ const reviews = [
   {
     name: "Neha Kapoor",
     text: "Best financial guidance I’ve received. Very honest and reliable.",
+  },
+  {
+    name: "Umar Sadiq",
+    text: "Got the best and chepeast insurance with all benefits for my car "
   },
   {
     name: "Sandeep Mehta",
