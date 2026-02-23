@@ -1,4 +1,5 @@
 "use client";
+import Testimonials from "@/components/testimonials";
 
 import { useState } from "react";
 import ServiceCard from "@/components/ServiceCard";
@@ -305,6 +306,8 @@ export default function HomePage() {
 
         </div>
       </section>
+
+      <Testimonials/>
 
       {/* FOUNDER SECTION */}
       <section className="py-12 md:py-14 px-4 sm:px-6 lg:px-8 bg-white">
