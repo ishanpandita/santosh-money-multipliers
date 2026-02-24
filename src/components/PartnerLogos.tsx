@@ -10,6 +10,7 @@ const partners = [
   { name: "Star Health", logo: "/logos/starhealth.png" },
   { name: "Tata AIG", logo: "/logos/tataaig.png" },
   { name: "Care Health Insurance", logo: "/logos/care.png" },
+  { name: "Liberty general", logo:"/logos/liberty.png"}
 ];
 
 export default function PartnerLogos() {
