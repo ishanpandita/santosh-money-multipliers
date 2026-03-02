@@ -24,8 +24,8 @@ const reviews = [
     text: "Best financial guidance I’ve received. Very honest and reliable.",
   },
   {
-    name: "Umar Sadiq",
-    text: "Got the best and chepeast insurance with all benefits for my car "
+    name: "ashok bhat",
+    text: "Got the best and affordable insurance with all benefits for my car "
   },
   {
     name: "Sandeep Mehta",
